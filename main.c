@@ -31,5 +31,7 @@ int main(){
     printf("ORDEM DE INICIATIVA:\n\n");
     imprimirPersonagem(listaBatalha, qntPersonagem);
 
+    system("pause");
+
 return 0;
 }
