@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define limit 100 + 2 //Limitando o número de caracteres para 100, o +2 é referente ao \n e \0.
+#define limit 50 + 2 //Limitando o número de caracteres para 100, o +2 é referente ao \n e \0.
 
 struct batalhaIniciativa{
     char nome[limit];
@@ -25,7 +25,7 @@ void bubbleSort(struct batalhaIniciativa *listaBatalha, int qntPersonagem){
     int ordenado;
 
     do{
-        ordenado = 1; //A flag 'ordenado' começa com verdadeiro.
+        ordenado = 1; //A flag 'ordenado' sempre começa como verdadeiro a cada loop.
         for(int i = 0; i < qntPersonagem - 1; i++){
             if(listaBatalha[i].iniciativa < listaBatalha[i+1].iniciativa){
                 aux = listaBatalha[i];
@@ -34,5 +34,5 @@ void bubbleSort(struct batalhaIniciativa *listaBatalha, int qntPersonagem){
                 ordenado = 0; //A flag indica que houve troca, logo, ainda não está ordenado.
             }
         }
-    }while(ordenado == 0);
+    }while(!ordenado);
 }

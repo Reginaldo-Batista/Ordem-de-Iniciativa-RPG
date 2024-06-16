@@ -6,9 +6,10 @@ int main(){
 
     printf("Insira a quantidade de envolvidos no combate: ");
     scanf("%d", &qntPersonagem);
-    getchar();
+    getchar(); // O getchar() é necessário devido ao '\n' que o scanf gera
 
-    struct batalhaIniciativa listaBatalha[qntPersonagem];
+    // Alocando memória em tempo de execução
+    struct batalhaIniciativa *listaBatalha = (struct batalhaIniciativa*) malloc(sizeof(struct batalhaIniciativa) * qntPersonagem);
 
     for(int i = 0; i < qntPersonagem; i++){
 
@@ -31,6 +32,9 @@ int main(){
     printf("ORDEM DE INICIATIVA:\n\n");
     imprimirPersonagem(listaBatalha, qntPersonagem);
 
+    // Liberando a memória alocada
+    free(listaBatalha);
+    
     system("pause");
 
 return 0;
