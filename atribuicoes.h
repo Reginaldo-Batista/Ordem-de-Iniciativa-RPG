@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define limit 50 + 2 //Limitando o número de caracteres para 100, o +2 é referente ao \n e \0.
+#include <time.h>
+#define maxLimitChar 50 + 2 //Limitando o número de caracteres para 100, o +2 é referente ao \n e \0.
 
 struct batalhaIniciativa{
-    char nome[limit];
+    char nome[maxLimitChar];
     int iniciativa;
 };
 
@@ -15,7 +16,7 @@ void imprimirPersonagem(struct batalhaIniciativa *jogadores, int numJogadores){
 }
 
 void removeEnter(char *word){ //Pede que o usuário insira uma string, remove o enter (a.k.a. \n) e salva.
-    fgets(word, limit, stdin);
+    fgets(word, maxLimitChar, stdin);
     word[strlen(word) - 1] = '\0';
 }
 
