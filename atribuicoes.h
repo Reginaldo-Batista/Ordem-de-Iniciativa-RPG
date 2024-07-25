@@ -23,7 +23,7 @@ void removeEnter(char *word){ //Pede que o usuário insira uma string, remove o 
 void bubbleSort(struct batalhaIniciativa *listaBatalha, int qntPersonagem){
 
     struct batalhaIniciativa aux;
-    int ordenado;
+    unsigned short int ordenado;
 
     do{
         ordenado = 1; //A flag 'ordenado' sempre começa como verdadeiro a cada loop.
