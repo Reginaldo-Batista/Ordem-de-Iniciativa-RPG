@@ -1,10 +1,7 @@
 #include "atribuicoes.h"
-
+#define fimMenu 4
 int main() {
-    
-    srand(time(NULL)); //Fornecendo a seed do time(NULL) para a função srand
     int qntPersonagens;
-    struct personagemIniciativa *listaBatalha;
 
     do {
         printf("Insira a quantidade de envolvidos no combate: ");
@@ -15,7 +12,7 @@ int main() {
 
     system("CLS");
 
-    listaBatalha = (struct personagemIniciativa*) malloc(sizeof(struct personagemIniciativa) * qntPersonagens);
+    struct personagemIniciativa *listaBatalha = (struct personagemIniciativa*) malloc(sizeof(struct personagemIniciativa) * qntPersonagens);
 
     if (listaBatalha == NULL) {
         printf("Erro ao alocar memória!\n");
@@ -28,7 +25,7 @@ int main() {
     system("cls");
 
     int escolha;
-    while (escolha != 3) {
+    while (escolha != fimMenu) {
         printf("ORDEM DE INICIATIVA:\n\n");
         printPersonagens(listaBatalha, qntPersonagens);
         printf("\n\n");
@@ -37,7 +34,8 @@ int main() {
         while (escolha <= 0 || escolha > 3) {
             printf("[1] Alterar iniciativa\n");
             printf("[2] Trocar posicao\n");
-            printf("[3] Sair\n");
+            printf("[3] Trocar nome do personagem\n");
+            printf("[%d] Sair\n", fimMenu);
             printf("Sua escolha: ");
             scanf("%d", &escolha);
             getchar();
@@ -54,8 +52,12 @@ int main() {
             case 2:
                 trocarPosicao(listaBatalha, qntPersonagens);
                 break;
-
+            
             case 3:
+                trocarNomePersonagem(listaBatalha, qntPersonagens);
+                break;
+                
+            case fimMenu:
                 printf("Saindo...\n");
         }
     }
