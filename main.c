@@ -31,7 +31,7 @@ int main() {
         printf("\n\n");
 
         escolha = 0;
-        while (escolha <= 0 || escolha > 3) {
+        while (escolha <= 0 || escolha > fimMenu) {
             printf("[1] Alterar iniciativa\n");
             printf("[2] Trocar posicao\n");
             printf("[3] Trocar nome do personagem\n");
@@ -59,6 +59,8 @@ int main() {
                 
             case fimMenu:
                 printf("Saindo...\n");
+
+                break;
         }
     }
 
